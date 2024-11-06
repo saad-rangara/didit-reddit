@@ -4,6 +4,8 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { LoginButton } from "@/components/LoginButton";
 import { LogoutButton } from "@/components/LogoutButton";
+import { Editor } from "@/components/Editor";
+import Tiptap from "@/components/TipTap";
 
 export default async function Home() {
   const session = await auth();
@@ -42,13 +44,18 @@ export default async function Home() {
           type="text"
           name="title"
           placeholder="Post title..."
-          className="text-black px-3 py-2 rounded"
+          className="text-gray-500 px-3 py-2 rounded"
         />
-        <textarea
+        {/* <div className="editor-container">
+          <Editor name="content" />
+        </div> */}
+        <Editor />
+        <Tiptap />
+        {/* <textarea
           name="content"
           className="text-black px-3 py-2 rounded"
           placeholder="Post content"
-        />
+        /> */}
         <button className="bg-green-400 px-4 py-2 text-xl text-black rounded">
           Submit post
         </button>
